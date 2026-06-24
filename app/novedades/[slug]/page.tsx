@@ -100,7 +100,7 @@ export default async function UpdatePage({ params }: PageProps) {
             </p>
             <a
               href={SITE.demoUrl}
-              className="mt-4 inline-flex shrink-0 rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-alante-700 transition hover:bg-alante-50 sm:mt-0"
+              className="mt-4 inline-flex shrink-0 rounded-lg bg-surface px-5 py-2.5 text-sm font-semibold text-alante-700 transition hover:bg-alante-50 sm:mt-0 dark:text-alante-200 dark:hover:bg-alante-700/30"
               target="_blank"
               rel="noopener noreferrer"
             >

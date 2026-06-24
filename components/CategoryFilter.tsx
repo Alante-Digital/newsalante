@@ -7,8 +7,8 @@ const linkBase =
 
 function categoryLinkClass(active: boolean) {
   return active
-    ? `${linkBase} bg-foreground text-white`
-    : `${linkBase} text-muted hover:bg-surface hover:text-foreground`;
+    ? `${linkBase} bg-alante-500 text-white`
+    : `${linkBase} text-muted hover:bg-background hover:text-foreground`;
 }
 
 export function CategoryFilter({ filters }: { filters: ListFilters }) {

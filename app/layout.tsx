@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ThemeScript } from "@/components/ThemeScript";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
 
@@ -36,7 +37,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${inter.variable} h-full scroll-smooth antialiased`}>
+    <html lang="es" className={`${inter.variable} h-full scroll-smooth antialiased`} suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         {children}
       </body>

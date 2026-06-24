@@ -28,7 +28,7 @@ export function UpdateImage({
   }
 
   return (
-    <div className={`overflow-hidden bg-slate-100 ${className}`}>
+    <div className={`overflow-hidden bg-image-bg ${className}`}>
       <Image
         src={src}
         alt={alt}

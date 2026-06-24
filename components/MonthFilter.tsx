@@ -8,7 +8,7 @@ const linkBase =
 function monthLinkClass(active: boolean) {
   return active
     ? `${linkBase} bg-alante-500 text-white`
-    : `${linkBase} text-muted hover:bg-surface hover:text-foreground`;
+    : `${linkBase} text-muted hover:bg-background hover:text-foreground`;
 }
 
 export function MonthFilter({ filters }: { filters: ListFilters }) {

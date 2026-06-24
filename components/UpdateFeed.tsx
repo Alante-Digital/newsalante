@@ -24,7 +24,7 @@ function UpdateCard({
         <div className="grid md:grid-cols-2 md:items-stretch">
           <Link
             href={`/novedades/${update.slug}`}
-            className="relative block h-full min-h-[220px] overflow-hidden bg-slate-100"
+            className="relative block h-full min-h-[220px] overflow-hidden bg-image-bg"
           >
             <UpdateImage src={imageSrc} alt={imageAlt} priority={priority} fill />
           </Link>

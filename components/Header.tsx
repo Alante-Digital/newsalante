@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { SITE } from "@/lib/constants";
 
 export function Header() {
@@ -12,11 +13,12 @@ export function Header() {
             alt="Alante Digital"
             width={140}
             height={40}
-            className="h-8 w-auto"
+            className="h-8 w-auto dark:brightness-0 dark:invert"
             priority
           />
         </Link>
-        <nav className="flex items-center gap-2 sm:gap-4">
+        <nav className="flex items-center gap-1 sm:gap-2">
+          <ThemeToggle />
           <a
             href="/rss.xml"
             className="hidden rounded-lg px-3 py-2 text-sm font-medium text-muted transition hover:bg-background hover:text-foreground sm:inline-flex"
