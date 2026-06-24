@@ -21,40 +21,35 @@ function UpdateCard({
   if (featured) {
     return (
       <article className="overflow-hidden rounded-2xl bg-surface shadow-sm ring-1 ring-border">
-        <div className="grid md:grid-cols-2 md:items-stretch">
+        <Link href={`/novedades/${update.slug}`} className="block">
+          <UpdateImage src={imageSrc} alt={imageAlt} priority={priority} />
+        </Link>
+        <div className="p-6 sm:p-8">
+          <div className="flex flex-wrap items-center gap-2">
+            <BadgePill badge={update.badge} />
+            <CategoryPill category={update.category} linked />
+          </div>
+          <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            <Link href={`/novedades/${update.slug}`} className="transition hover:text-alante-600">
+              {update.title}
+            </Link>
+          </h2>
+          <p className="mt-4 line-clamp-4 text-base leading-7 text-muted">{update.excerpt}</p>
+          <div className="mt-6 flex items-center gap-3">
+            <AuthorAvatar name={update.author} />
+            <div className="text-sm">
+              <p className="font-medium text-foreground">{update.author}</p>
+              <time dateTime={update.date} className="text-muted">
+                {formatDate(update.date)}
+              </time>
+            </div>
+          </div>
           <Link
             href={`/novedades/${update.slug}`}
-            className="relative block h-full min-h-[220px] overflow-hidden bg-image-bg"
+            className="mt-6 inline-flex text-sm font-semibold text-alante-600 transition hover:text-alante-700"
           >
-            <UpdateImage src={imageSrc} alt={imageAlt} priority={priority} fill />
+            Leer novedad →
           </Link>
-          <div className="flex flex-col justify-center p-6 sm:p-8">
-            <div className="flex flex-wrap items-center gap-2">
-              <BadgePill badge={update.badge} />
-              <CategoryPill category={update.category} linked />
-            </div>
-            <h2 className="mt-4 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-              <Link href={`/novedades/${update.slug}`} className="transition hover:text-alante-600">
-                {update.title}
-              </Link>
-            </h2>
-            <p className="mt-4 line-clamp-4 text-base leading-7 text-muted">{update.excerpt}</p>
-            <div className="mt-6 flex items-center gap-3">
-              <AuthorAvatar name={update.author} />
-              <div className="text-sm">
-                <p className="font-medium text-foreground">{update.author}</p>
-                <time dateTime={update.date} className="text-muted">
-                  {formatDate(update.date)}
-                </time>
-              </div>
-            </div>
-            <Link
-              href={`/novedades/${update.slug}`}
-              className="mt-6 inline-flex text-sm font-semibold text-alante-600 transition hover:text-alante-700"
-            >
-              Leer novedad →
-            </Link>
-          </div>
         </div>
       </article>
     );
