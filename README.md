@@ -2,7 +2,14 @@
 
 Sitio de changelog para publicar nuevas funcionalidades, mejoras y correcciones de [Alante Digital](https://alantedigital.com).
 
-Diseñado para desplegarse en `novedades.alantedigital.com`.
+Producción: [novedades.alantedigital.com](https://novedades.alantedigital.com)  
+Repositorio: [github.com/Alante-Digital/newsalante](https://github.com/Alante-Digital/newsalante)
+
+## Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4**
+- **MDX** — el contenido vive en archivos `.mdx`, sin base de datos
 
 ## Desarrollo local
 
@@ -11,21 +18,32 @@ npm install
 npm run dev
 ```
 
-Abre [http://localhost:3000](http://localhost:3000).
+Abre [http://localhost:3000](http://localhost:3000). Si el puerto 3000 está ocupado, Next.js usará el siguiente disponible (por ejemplo, 3001).
+
+```bash
+npm run build   # verificar que el sitio compila
+npm run lint    # revisar el código
+```
 
 ## Publicar una novedad
 
-Crea un archivo `.mdx` en `content/updates/` con este formato:
+1. Crea un archivo `.mdx` en `content/updates/`.
+2. Añade la imagen en `public/updates/` (recomendado: 1200×675 px, formato 16:9).
+3. Haz commit y push — en producción, Vercel reconstruye el sitio automáticamente.
+
+El nombre del archivo define la URL: `mi-novedad.mdx` → `/novedades/mi-novedad`
+
+### Frontmatter
 
 ```mdx
 ---
 title: "Título de la novedad"
 date: "2026-06-23"
 author: "Tu nombre"
-category: facturacion
+category: ventas
 badge: nuevo
 excerpt: "Resumen corto que aparece en el listado."
-image: "/updates/mi-captura.jpg"   # obligatorio — sin imagen el card se desalinea
+image: "/updates/mi-captura.jpg"
 imageAlt: "Descripción de la imagen para accesibilidad"
 pocketChange:
   - "Cambio menor relacionado"
@@ -35,41 +53,86 @@ pocketChange:
 Contenido en Markdown/MDX...
 ```
 
-### Categorías disponibles
+| Campo | Obligatorio | Descripción |
+|---|---|---|
+| `title` | Sí | Título del artículo |
+| `date` | Sí | Fecha de publicación (`YYYY-MM-DD`) |
+| `author` | Sí | Nombre del autor |
+| `category` | Sí | Aplicación de Alante (ver tabla abajo) |
+| `badge` | Sí | Tipo de novedad: `nuevo`, `mejora` o `correccion` |
+| `excerpt` | Sí | Resumen para tarjetas y SEO |
+| `image` | No | Ruta a la imagen en `public/updates/` |
+| `imageAlt` | Recomendado | Texto alternativo de la imagen |
+| `pocketChange` | No | Lista de cambios menores relacionados |
 
-`facturacion` · `tesoreria` · `inventario` · `crm` · `contabilidad` · `equipo` · `gastos` · `plataforma`
+### Aplicaciones (`category`)
 
-### Badges disponibles
+| Slug | Aplicación |
+|---|---|
+| `ventas` | Ventas |
+| `punto-de-venta` | Punto de Venta |
+| `compras-y-gastos` | Compras y Gastos |
+| `inventario` | Inventario |
+| `cajas-y-bancos` | Cajas y Bancos |
+| `contabilidad` | Contabilidad |
+| `fiscal` | Fiscal |
+| `proyectos` | Proyectos |
+| `recursos-humanos` | Recursos Humanos |
+| `crm` | CRM |
+| `restaurantes` | Restaurantes |
+| `soporte` | Soporte |
 
-`nuevo` · `mejora` · `correccion`
+### Badges (`badge`)
 
-El nombre del archivo define la URL: `mi-novedad.mdx` → `/novedades/mi-novedad`
+| Valor | Etiqueta | Cuándo usarlo |
+|---|---|---|
+| `nuevo` | Nuevo | Funcionalidad nueva |
+| `mejora` | Mejora | Cambio en algo que ya existía |
+| `correccion` | Corrección | Arreglo de un bug |
 
-Guarda la imagen en `public/updates/` (recomendado: 1200×675 px, formato 16:9). Si omites `image`, se mostrará un placeholder genérico.
+### Imágenes
+
+- En el **listado**, si no hay `image` se muestra un placeholder para mantener las tarjetas alineadas.
+- En la **página de detalle**, si no hay `image` no se muestra imagen hero.
+
+## Rutas del sitio
+
+| Ruta | Descripción |
+|---|---|
+| `/` | Listado principal (página 1) |
+| `/pagina/2` | Paginación del listado |
+| `/novedades/[slug]` | Artículo individual |
+| `/categoria/[category]` | Filtrar por aplicación |
+| `/mes/[year]/[month]` | Filtrar por mes (ej. `/mes/2026/06`) |
+| `/categoria/[category]/mes/[year]/[month]` | Aplicación + mes combinados |
+| `/rss.xml` | Feed RSS |
+
+Los filtros de aplicación y mes se pueden combinar. Al cambiar de filtro, el otro filtro activo se conserva. Si una combinación no tiene artículos, la página se muestra con un mensaje vacío (no devuelve 404).
+
+En móvil, los filtros aparecen colapsados por defecto en una barra compacta.
 
 ## Paginación
 
-El listado muestra **12 artículos por página**. Con más de 12 novedades:
+El listado muestra **12 artículos por página**. Ejemplos:
 
-- Página 1: `/`
-- Página 2+: `/pagina/2`, `/pagina/3`, …
-- Por categoría: `/categoria/facturacion/pagina/2`
-
-## Filtros
-
-**Por módulo** y **por mes** se pueden combinar:
-
-- Junio 2026: `/mes/2026/06`
-- Facturación en junio 2026: `/categoria/facturacion/mes/2026/06`
-
-Los filtros activos se conservan al cambiar de módulo o mes.
+- `/pagina/2`
+- `/categoria/ventas/pagina/2`
+- `/categoria/cajas-y-bancos/mes/2026/06/pagina/2`
 
 ## Despliegue
 
-Recomendado: [Vercel](https://vercel.com) conectado al repositorio Git. Cada push reconstruye el sitio automáticamente.
+1. Conecta el repositorio en [Vercel](https://vercel.com).
+2. Cada push a `main` reconstruye el sitio.
+3. En Vercel → **Settings → Domains**, añade `novedades.alantedigital.com`.
+4. Configura el registro DNS (CNAME) que indique Vercel en tu proveedor de dominio.
 
-Configura el dominio `novedades.alantedigital.com` en tu proveedor DNS apuntando a Vercel.
+## Estructura del proyecto
 
-## RSS
-
-Feed disponible en `/rss.xml`.
+```
+app/                  # Rutas Next.js
+components/           # UI (filtros, tarjetas, paginación, etc.)
+content/updates/      # Artículos MDX
+lib/                  # Lógica (filtros, paginación, constantes)
+public/updates/       # Imágenes de los artículos
+public/img/           # Logo y assets del sitio
+```
