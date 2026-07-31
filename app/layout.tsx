@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import { ThemeScript } from "@/components/ThemeScript";
 import { SITE } from "@/lib/constants";
 import "./globals.css";
@@ -43,6 +44,12 @@ export default function RootLayout({
       </head>
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
         {children}
+        <Script
+          defer
+          src="https://stats.alante.net/script.js"
+          data-website-id="6dc56c05-8715-4b76-be81-40914f2af66b"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
