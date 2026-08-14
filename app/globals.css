@@ -122,3 +122,28 @@ body {
 .prose-update a:hover {
   color: var(--alante-700);
 }
+
+.prose-update .callout-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--alante-700);
+}
+
+.prose-update .callout-title {
+  margin: 0.35rem 0 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  color: var(--foreground);
+}
+
+.prose-update .callout-body p {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
