@@ -147,3 +147,9 @@ body {
   line-height: 1.7;
   color: var(--foreground);
 }
+
+.prose-update .callout-body a {
+  font-weight: 700;
+  color: var(--alante-700);
+  text-decoration-color: var(--alante-500);
+}
