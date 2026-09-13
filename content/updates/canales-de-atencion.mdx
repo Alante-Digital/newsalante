@@ -1,0 +1,55 @@
+---
+title: "Canales de atención: cada equipo con su correo, WhatsApp e IA"
+date: "2026-09-13"
+author: "Equipo Alante Digital"
+category: soporte
+badge: nuevo
+excerpt: "Separa colas por equipo: alias de email, línea de WhatsApp, asignación y personalidad de IA. El canal principal recibe lo que no coincida."
+image: "/updates/canales-de-atencion.jpg"
+imageAlt: "Banner de la novedad: canales de atención por equipo con correo, WhatsApp e IA"
+pocketChange:
+  - "Los artículos de la base de conocimientos se pueden limitar a un canal o dejarlos globales para todas las colas."
+  - "Cada canal de IA (el tono de «Sugerir con IA») se asocia a un canal de atención, para que ventas y soporte no hablen igual."
+---
+
+Hasta ahora, un correo a `ventas@` y un WhatsApp de onboarding podían caer en la misma cola, con los mismos agentes y la misma respuesta automática. Con **canales de atención** cada equipo queda separado: su alias, su línea de WhatsApp, sus agentes, su asignación y —si usas IA— su propio tono.
+
+El origen del ticket (correo, WhatsApp, web) no cambia. Lo que cambia es **quién lo recibe**.
+
+<Callout title="El canal Principal ya existe">
+
+Alante Digital crea el canal **Principal** por ti. No se puede eliminar ni desactivar. Recibe los tickets que no coinciden con un alias o una línea de WhatsApp, y a los agentes nuevos. Si aún no separas equipos, todo sigue llegando ahí.
+
+</Callout>
+
+## Qué queda en cada canal
+
+En **Configuración → Soporte → Canales de atención** creas un canal (Ventas, Facturación, Onboarding…) y defines:
+
+- **Nombre y agentes** del equipo. Un agente que no está en el canal no ve esos tickets; quien administra soporte sí los ve todos.
+- **Línea de WhatsApp** (opcional). Cada línea pertenece a un solo canal. Las que ya están usadas no aparecen para elegir otra vez.
+- **Asignación automática**: un solo agente, rotación (round robin) o el de menor carga. Puedes dejar un retraso en minutos para que primero entren las reglas de automatización.
+- **Tickets desde correo**: prioridad, tipo y origen por defecto cuando llega un email nuevo a un alias de este canal.
+- **Respuesta automática** con el número de ticket. El Reply-To es el alias del canal (por ejemplo `ventas@`), no el buzón único de la organización.
+
+El correo **no se configura dentro del canal**. Se asocia al revés: en **Configuración → Soporte → Email**, cada alias apunta a un canal. Si no eliges canal, el ticket entra al Principal.
+
+## Cómo se enruta lo que llega
+
+- Un WhatsApp a la línea de Ventas abre (o continúa) un ticket en **Ventas**.
+- Un correo a `facturacion@tudominio.com` entra al canal de **Facturación**, si ese alias está asociado.
+- Lo demás —web, un alias sin canal, una línea sin asignar— cae en **Principal**.
+
+Así el mismo buzón de soporte puede alimentar varias colas, sin crear un buzón por equipo.
+
+## Cómo usarlo
+
+1. Ve a **Configuración → Soporte → Canales de atención** y pulsa **Nuevo canal**.
+2. Ponle nombre, marca los agentes y, si aplica, la línea de WhatsApp.
+3. Activa la asignación y elige estrategia (un agente, rotación o menor carga).
+4. En **Email**, asocia cada alias al canal que debe recibirlo.
+5. Si usas **IA · Canales de respuesta**, vincula la personalidad al canal de atención para que «Sugerir con IA» use las instrucciones de ese equipo.
+
+En el listado de tickets puedes filtrar por canal. Si eliminas un canal que no es el principal, sus tickets pasan al Principal.
+
+Ideal para organizaciones que atienden varias colas (soporte, ventas, onboarding, facturación) y necesitan que el correo, el WhatsApp y la IA sigan al mismo equipo.
