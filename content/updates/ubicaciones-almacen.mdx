@@ -1,0 +1,34 @@
+---
+title: "Ubicaciones en el almacén"
+date: "2026-11-12T20:00:00Z"
+author: "Equipo Alante Digital"
+category: inventario
+badge: nuevo
+excerpt: "Define pasillos, estantes o bins en cada almacén, asigna cada producto y consulta la existencia por ubicación."
+image: "/updates/ubicaciones-almacen.jpg"
+imageAlt: "Banner de la novedad: ubicaciones del almacén con identificador, nombre y existencia por pasillo"
+---
+
+Cada almacén puede tener ahora sus propias ubicaciones. Un pasillo, un estante o un bin dejan de ser una nota suelta: el producto se asigna desde ese catálogo y la existencia se consulta agrupada.
+
+## Dónde se crean
+
+Entra a **Inventario → Ubicaciones** y elige **Nueva ubicación**.
+
+Cada una pide tres datos:
+
+- **Almacén** al que pertenece.
+- **Identificador**, por ejemplo `A-01`. Es el código que usa el importador de productos.
+- **Nombre**, opcional: pasillo frío, estante 3, bin de caja.
+
+Puedes filtrar el listado por almacén y buscar por identificador o nombre. Editar y eliminar están en la misma fila. Si la ubicación ya tiene productos, el conteo se ve en la columna **Productos**.
+
+## Cómo se asignan
+
+Abre el almacén. En la lista de productos, la columna **Ubicación** ofrece las de ese almacén, o **Sin ubicación**.
+
+En la importación de productos, la columna `ubicacion` usa ese mismo identificador. El almacén y la ubicación tienen que existir antes; si el identificador no está creado, esa fila no se importa. En un producto nuevo, la cantidad y la ubicación del archivo sí se aplican. En uno que ya existe, la existencia y la ubicación no cambian salvo que marques **Ajustar existencias**.
+
+## La existencia, por ubicación
+
+En **Inventario → Reportes → Por ubicación** ves la existencia agrupada. Puedes filtrar por almacén y por una ubicación concreta, incluida **Sin ubicación**. Cada grupo muestra el código, el nombre y los productos que están ahí, con un enlace a la ficha.

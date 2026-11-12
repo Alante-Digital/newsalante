@@ -1,0 +1,36 @@
+---
+title: "Propina del voucher de tarjeta en el POS"
+date: "2026-11-12T19:00:00Z"
+author: "Equipo Alante Digital"
+category: punto-de-venta
+badge: nuevo
+excerpt: "Suma la propina escrita en el voucher buscando el cobro por su autorización. La factura no cambia."
+image: "/updates/propina-voucher-tarjeta-pos.jpg"
+imageAlt: "Banner de la novedad: ajustar la propina del voucher de tarjeta desde el punto de venta"
+---
+
+Cuando el cliente escribe una propina en el voucher, el cajero puede registrarla en el cobro con tarjeta sin reabrir la factura ni cambiar lo que ya se cobró.
+
+<Callout title="Hay que activarla">
+
+No viene encendida. En **Configuración → Punto de Venta**, dentro de **Operación en caja**, activa **Permitir ajustar propina de tarjeta**.
+
+</Callout>
+
+## Cómo se carga
+
+Con la sesión abierta, **Ajustar propina** está en la barra del POS y también en **Acciones rápidas**.
+
+1. Escribe el **número de autorización** del voucher y busca.
+2. Alante Digital muestra el cobro de esta sesión: factura, tarjeta y monto cobrado.
+3. Escribe la **propina del voucher** y guarda.
+
+El recuadro de **Cargo en la terminal** suma lo cobrado más la propina, para que coincida con lo que quedó en la terminal. La factura y el monto del cobro no cambian. La propina queda en ese pago con tarjeta.
+
+Solo entran cobros con tarjeta, confirmados, de la sesión abierta. Si la autorización no está en este turno, no se puede ajustar.
+
+## Al cerrar la sesión
+
+En el cierre, el método de tarjeta indica cuánto de ese total es **propina en voucher**.
+
+Si el monto se escribió mal, busca la misma autorización y guarda el correcto. También puedes dejarla en cero. Alante Digital contabiliza solo la diferencia.
